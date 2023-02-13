@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="asteroid"
+            type="com.udacity.asteroidradar.data.models.Asteroid" />
+
+        <variable
+            name="clickListener"
+            type="com.udacity.asteroidradar.ui.main.AsteroidAdapter.AsteroidListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{() -> clickListener.onClick(asteroid)}"
+        android:padding="@dimen/default_padding"
+        tools:background="@color/colorPrimary">
+
+        <TextView
+            android:id="@+id/tv_asteroid_item_name"
+            android:textColor="@color/default_text_color"
+            android:textStyle="bold"
+            android:textSize="@dimen/text_view_asteroid_item_name_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:asteroidName="@{asteroid.codename}"
+            app:asteroidStatus="@{asteroid.potentiallyHazardous}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="mmmmmmmmmm" />
+
+        <TextView
+            android:id="@+id/tv_asteroid_item_approach_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/default_text_color"
+            android:textSize="@dimen/text_view_asteroid_item_approach_date"
+            app:asteroidName="@{asteroid.closeApproachDate}"
+            app:asteroidStatus="@{asteroid.potentiallyHazardous}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_asteroid_item_name"
+            tools:text="2022-11-02" />
+
+        <ImageView
+            android:id="@+id/iv_asteroid_item_isHazardous"
+            android:layout_width="@dimen/image_view_asteroid_item"
+            android:layout_height="@dimen/image_view_asteroid_item"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:statusIcon="@{asteroid.potentiallyHazardous}"
+            tools:src="@drawable/ic_status_normal" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

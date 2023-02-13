@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="default_padding">16dp</dimen>
+    <dimen name="text_view_asteroid_item_name_size">24sp</dimen>
+    <dimen name="text_view_asteroid_item_approach_date">16sp</dimen>
+    <dimen name="image_view_asteroid_item">50dp</dimen>
+</resources>
